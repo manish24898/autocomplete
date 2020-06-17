@@ -38,15 +38,15 @@ const AutoDropdown = props => {
      * @param e
      */
     const onTextChange = e => {
+        setInput(e.target.value);
         let value = e.target.value.toLowerCase();
-        setInput(value);
-
         if (value.length > 0) {
             let searchResults = [];
 
             for (let index = 0; index < users.length; index++) {
                 let name = users[index].name.toLocaleLowerCase();
-                if (name.includes(value)) {
+              
+                if (name.startsWith(value, 0)) {
                     searchResults.push(users[index]);
                 }
             }
